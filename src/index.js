@@ -1,4 +1,5 @@
 import React from 'react';
+import { createRoot } from 'react-dom/client';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -9,9 +10,11 @@ import initialState from './initialState';
 
 const store = createStore(reducer, initialState);
 
-ReactDOM.render(
+const container = document.getElementById('app');
+const root = createRoot(container)
+
+root.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('app'),
 );
